@@ -1,10 +1,15 @@
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 import GlobalStyle from './GlobalStyle';
+import TopBar from './components/TopBar';
 
 function App() {
   return (
     <div className='App'>
-      <GlobalStyle />
-      <h1>Where's Waldo</h1>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <TopBar />
+      </ThemeProvider>
     </div>
   );
 }
