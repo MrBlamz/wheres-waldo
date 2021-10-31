@@ -4,6 +4,7 @@ import theme from './theme';
 import GlobalStyle from './GlobalStyle';
 import levels from './data';
 import Home from './pages/Home';
+import Game from './pages/Game';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           <Switch>
             <Route exact path='/'>
               <Home data={levels} />
+            </Route>
+            <Route exact path='/game'>
+              <Game data={levels[0]} />
             </Route>
           </Switch>
         </Router>
