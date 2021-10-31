@@ -2,6 +2,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 import GlobalStyle from './GlobalStyle';
+import levels from './data';
 import Home from './pages/Home';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path='/'>
-              <Home />
+              <Home data={levels} />
             </Route>
           </Switch>
         </Router>

@@ -2,52 +2,26 @@ import { Container, Grid } from './styles';
 import MainTopBar from '../../components/MainTopBar';
 import LevelCard from '../../components/LevelCard';
 import LeaderboardCard from '../../components/LeaderboardCard';
-import { levelOne } from '../../data';
 import Spacer from '../../components/Spacer';
 
-const Home = () => {
+const Home = ({ data }) => {
+  const levelCards = data.map((item, index) => {
+    const { image, level, characters } = item;
+    return (
+      <LevelCard
+        key={index}
+        image={image}
+        level={level}
+        characters={characters}
+      />
+    );
+  });
+
   return (
     <>
       <MainTopBar />
       <Container>
-        <Grid>
-          <LevelCard
-            characters={levelOne.characters}
-            image={levelOne.picture}
-            level={levelOne.level}
-            key={1}
-          />
-          <LevelCard
-            characters={levelOne.characters}
-            image={levelOne.picture}
-            level={levelOne.level}
-            key={2}
-          />
-          <LevelCard
-            characters={levelOne.characters}
-            image={levelOne.picture}
-            level={levelOne.level}
-            key={3}
-          />
-          <LevelCard
-            characters={levelOne.characters}
-            image={levelOne.picture}
-            level={levelOne.level}
-            key={4}
-          />
-          <LevelCard
-            characters={levelOne.characters}
-            image={levelOne.picture}
-            level={levelOne.level}
-            key={5}
-          />
-          <LevelCard
-            characters={levelOne.characters}
-            image={levelOne.picture}
-            level={levelOne.level}
-            key={6}
-          />
-        </Grid>
+        <Grid>{levelCards}</Grid>
         <Spacer marginTop={'5vh'} />
         <LeaderboardCard />
       </Container>
