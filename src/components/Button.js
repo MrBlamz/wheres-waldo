@@ -15,6 +15,7 @@ const Button = styled.button`
   border: none;
   border-radius: ${(props) => props.theme.borderRadius};
   font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   color: #fff;
   cursor: pointer;
 
