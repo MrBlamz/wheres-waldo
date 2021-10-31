@@ -1,13 +1,15 @@
 import { Container, TextContainer, BlackText, RedText } from './styles';
 import Button from '../Button';
 
-const LeaderboardCard = () => (
+const LeaderboardCard = ({ handleClick }) => (
   <Container>
     <TextContainer>
       <BlackText>Are you a Waldo expert?</BlackText>
       <RedText>View the leaderboard</RedText>
     </TextContainer>
-    <Button primary>View Leaderboard</Button>
+    <Button primary onClick={() => handleClick('/leaderboard')}>
+      View Leaderboard
+    </Button>
   </Container>
 );
 
