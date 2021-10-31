@@ -35,5 +35,6 @@ export const AvatarsContainer = styled.div`
 
 export const Avatar = styled.img`
   width: 22px;
+  height: 100%;
   margin: 0 5px;
 `;
