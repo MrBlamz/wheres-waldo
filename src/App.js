@@ -1,14 +1,21 @@
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 import GlobalStyle from './GlobalStyle';
-import TopBar from './components/TopBar';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className='App'>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <TopBar />
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
       </ThemeProvider>
     </div>
   );
