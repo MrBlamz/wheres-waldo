@@ -8,8 +8,8 @@ import {
 } from './styles';
 
 const LevelCard = ({ image, level, characters }) => {
-  const avatars = characters.map((character) => (
-    <Avatar src={character.avatar} />
+  const avatars = characters.map((character, index) => (
+    <Avatar src={character.avatar} key={index} />
   ));
 
   return (
