@@ -23,8 +23,8 @@ export const InfoContainer = styled.div`
 `;
 
 export const Level = styled.p`
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 500;
 `;
 
 export const AvatarsContainer = styled.div`
@@ -34,6 +34,6 @@ export const AvatarsContainer = styled.div`
 `;
 
 export const Avatar = styled.img`
-  width: 20px;
+  width: 22px;
   margin: 0 5px;
 `;
