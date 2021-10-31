@@ -5,16 +5,6 @@ const typographyStyles = css`
   font-weight: 600;
 `;
 
-export const Container = styled.header`
-  background-color: ${(props) => props.theme.background};
-  border-bottom: 2px solid ${(props) => props.theme.borderColor};
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const Image = styled.img`
   height: 100%;
 `;

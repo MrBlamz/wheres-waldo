@@ -1,5 +1,5 @@
 import { Container, Grid } from './styles';
-import TopBar from '../../components/TopBar';
+import MainTopBar from '../../components/MainTopBar';
 import LevelCard from '../../components/LevelCard';
 import LeaderboardCard from '../../components/LeaderboardCard';
 import { levelOne } from '../../data';
@@ -8,7 +8,7 @@ import Spacer from '../../components/Spacer';
 const Home = () => {
   return (
     <>
-      <TopBar />
+      <MainTopBar />
       <Container>
         <Grid>
           <LevelCard
