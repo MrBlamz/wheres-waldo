@@ -27,7 +27,7 @@ const Home = ({ data }) => {
 
   return (
     <>
-      <MainTopBar />
+      <MainTopBar handleClick={changeUrlPath} />
       <Container>
         <Grid>{levelCards}</Grid>
         <Spacer marginTop={'5vh'} />

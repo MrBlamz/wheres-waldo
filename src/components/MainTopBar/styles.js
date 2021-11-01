@@ -9,6 +9,11 @@ export const Image = styled.img`
   height: 100%;
 `;
 
+export const TitleContainer = styled.div`
+  display: flex;
+  cursor: pointer;
+`;
+
 export const RedTitle = styled.h1`
   ${typographyStyles};
   color: ${(props) => props.theme.primary};
