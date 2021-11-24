@@ -12,11 +12,11 @@ const Home = ({ data }) => {
     history.push(path);
   };
 
-  const levelCards = data.map((item, index) => {
-    const { image, level, characters } = item;
+  const levelCards = data.map((item) => {
+    const { image, level, characters, id } = item;
     return (
       <LevelCard
-        key={index}
+        key={id}
         image={image}
         level={level}
         characters={characters}
