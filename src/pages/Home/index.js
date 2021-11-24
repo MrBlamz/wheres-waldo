@@ -2,7 +2,7 @@ import { useHistory } from 'react-router';
 import { Container, Grid } from './styles';
 import MainTopBar from '../../components/MainTopBar';
 import LevelCard from '../../components/LevelCard';
-import LeaderboardCard from '../../components/LeaderboardCard';
+import LeaderBoardCard from '../../components/LeaderBoardCard';
 import Spacer from '../../components/Spacer';
 
 const Home = ({ data }) => {
@@ -31,7 +31,7 @@ const Home = ({ data }) => {
       <Container>
         <Grid>{levelCards}</Grid>
         <Spacer marginTop={'5vh'} />
-        <LeaderboardCard handleClick={changeUrlPath} />
+        <LeaderBoardCard handleClick={changeUrlPath} />
       </Container>
     </>
   );
