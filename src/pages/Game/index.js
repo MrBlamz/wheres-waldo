@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import useMousePosition from '../../hooks/useMousePosition';
 import { Container, Image } from './styles';
 import GameTopBar from '../../components/GameTopBar';
 import GameDropdownMenu from '../../components/GameDropdownMenu';
+import { changeUrlPath } from '../../helpers/historyAPI';
 
 const Game = ({ data }) => {
-  const history = useHistory();
   const [isDropdownMenuActive, setIsDropdownMenuActive] = useState(false);
   const { x, y, mouseClickHandler } = useMousePosition();
-
-  const changeUrlPath = (path) => {
-    history.push(path);
-  };
 
   const handleMouseClick = (event) => {
     const { id } = event.target;
@@ -36,7 +31,7 @@ const Game = ({ data }) => {
 
   return (
     <>
-      <GameTopBar characters={data.characters} handleClick={changeUrlPath} />
+      <GameTopBar characters={data.characters} changeUrlPath={changeUrlPath} />
       <Container onClick={handleMouseClick}>
         <Image src={data.image} alt='Board Picture' id='gameBoard' />
       </Container>

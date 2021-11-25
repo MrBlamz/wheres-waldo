@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router';
 import {
   Container,
   Image,
@@ -14,13 +15,14 @@ const LevelCard = ({
   changeUrlPath,
   selectLevel,
 }) => {
+  const history = useHistory();
   const avatars = characters.map((character, index) => (
     <Avatar src={character.avatar} key={index} />
   ));
 
   const handleClick = () => {
     selectLevel(level);
-    changeUrlPath('/game');
+    changeUrlPath(history, '/game');
   };
 
   return (
