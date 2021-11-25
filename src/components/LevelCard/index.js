@@ -7,13 +7,24 @@ import {
   Avatar,
 } from './styles';
 
-const LevelCard = ({ image, level, characters, handleClick }) => {
+const LevelCard = ({
+  image,
+  level,
+  characters,
+  changeUrlPath,
+  selectLevel,
+}) => {
   const avatars = characters.map((character, index) => (
     <Avatar src={character.avatar} key={index} />
   ));
 
+  const handleClick = () => {
+    selectLevel(level);
+    changeUrlPath('/game');
+  };
+
   return (
-    <Container onClick={() => handleClick('/game')}>
+    <Container onClick={() => handleClick()}>
       <Image src={image} />
       <InfoContainer>
         <Level>{`Level ${level}`}</Level>

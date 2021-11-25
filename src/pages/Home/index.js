@@ -5,7 +5,7 @@ import LevelCard from '../../components/LevelCard';
 import LeaderBoardCard from '../../components/LeaderBoardCard';
 import Spacer from '../../components/Spacer';
 
-const Home = ({ data }) => {
+const Home = ({ data, selectLevel }) => {
   const history = useHistory();
 
   const changeUrlPath = (path) => {
@@ -20,7 +20,8 @@ const Home = ({ data }) => {
         image={image}
         level={level}
         characters={characters}
-        handleClick={changeUrlPath}
+        changeUrlPath={changeUrlPath}
+        selectLevel={selectLevel}
       />
     );
   });
