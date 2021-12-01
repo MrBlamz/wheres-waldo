@@ -11,7 +11,7 @@ const Home = ({ data, selectLevel }) => {
     return (
       <LevelCard
         key={id}
-        image={image}
+        image={image.url}
         level={level}
         characters={characters}
         changeUrlPath={changeUrlPath}
