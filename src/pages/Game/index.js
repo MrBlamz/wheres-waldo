@@ -6,8 +6,9 @@ import DropDownMenu from '../../components/GameDropdownMenu';
 import { changeUrlPath } from '../../helpers/historyAPI';
 
 const Game = ({ data }) => {
-  const { characters, image } = data;
+  const { image } = data;
   const { url, width, height } = image;
+  const [characters, setCharacters] = useState([...data.characters]);
   const [isDropdownMenuActive, setIsDropdownMenuActive] = useState(false);
   const [convertedImageClickCoordinates, setConvertedImageClickCoordinates] =
     useState({
@@ -38,6 +39,19 @@ const Game = ({ data }) => {
     const clickedY = Math.round((relativeY / heightRatio) * 100) / 100;
 
     return { x: clickedX, y: clickedY };
+  };
+
+  const markCharacterAsFound = (name) => {
+    const newArray = characters.map((character) => {
+      if (character.name === name) {
+        const copy = { ...character, found: true };
+        return copy;
+      }
+
+      return character;
+    });
+
+    setCharacters(newArray);
   };
 
   const handleMouseClick = (event) => {
@@ -79,6 +93,7 @@ const Game = ({ data }) => {
           characters={characters}
           coordinates={{ x, y }}
           imageClickCoordinates={convertedImageClickCoordinates}
+          markCharacterAsFound={markCharacterAsFound}
         />
       )}
     </>

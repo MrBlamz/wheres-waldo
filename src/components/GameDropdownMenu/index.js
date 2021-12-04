@@ -5,6 +5,7 @@ const GameDropdownMenu = ({
   characters,
   coordinates,
   imageClickCoordinates,
+  markCharacterAsFound,
 }) => {
   const items = characters.map((character, index) => (
     <MenuItem
@@ -13,6 +14,7 @@ const GameDropdownMenu = ({
       name={character.name}
       characterCoordinates={character.coordinates}
       clickCoordinates={imageClickCoordinates}
+      markCharacterAsFound={markCharacterAsFound}
     />
   ));
 

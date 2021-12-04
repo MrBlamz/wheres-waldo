@@ -1,7 +1,13 @@
 import { Container, Avatar, Name } from './styles';
 import Spacer from '../../Spacer';
 
-const MenuItem = ({ avatar, name, characterCoordinates, clickCoordinates }) => {
+const MenuItem = ({
+  avatar,
+  name,
+  characterCoordinates,
+  clickCoordinates,
+  markCharacterAsFound,
+}) => {
   const isInsideRectangle = (rectangle, point) => {
     const { x1, x2, y1, y2 } = rectangle;
     const { x, y } = point;
@@ -11,11 +17,18 @@ const MenuItem = ({ avatar, name, characterCoordinates, clickCoordinates }) => {
   const handleMouseClick = (event) => {
     // Prevent event triggering in dropdown menu
     event.stopPropagation();
+
     const isCharacter = isInsideRectangle(
       characterCoordinates,
       clickCoordinates
     );
-    console.log(isCharacter);
+
+    if (isCharacter) {
+      markCharacterAsFound(name);
+      // Check if it's game over
+      // YES ? STOP TIMER AND ASK FOR NAME
+      // NO ? DO NOTHING
+    }
   };
 
   return (
