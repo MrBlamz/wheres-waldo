@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 `;
 
 export const Avatar = styled.img`

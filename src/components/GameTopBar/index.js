@@ -9,7 +9,11 @@ const GameTopBar = ({ characters, changeUrlPath }) => {
   const history = useHistory();
   const characterItems = characters.map((character, index) => (
     <Fragment key={index}>
-      <CharacterItem avatar={character.avatar} name={character.name} />
+      <CharacterItem
+        avatar={character.avatar}
+        name={character.name}
+        disabled={character.found}
+      />
       <Spacer margin='10px' />
     </Fragment>
   ));
