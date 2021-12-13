@@ -74,6 +74,16 @@ const Game = ({ data }) => {
     setIsDropdownMenuActive(false);
   };
 
+  // Check if it's game over
+  useEffect(() => {
+    const isGameOver = characters.every(
+      (character) => character.found === true
+    );
+
+    // TODO - Trigger modal that asks for username to save the time in the server
+    isGameOver && console.log('GameOver');
+  }, [characters]);
+
   useEffect(() => {
     document.addEventListener('click', handleMouseClick);
 
