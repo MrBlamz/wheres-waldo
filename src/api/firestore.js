@@ -1,5 +1,11 @@
 import { db } from '../firebase.config';
-import { collection, getDocs, query, orderBy } from '@firebase/firestore/lite';
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  addDoc,
+} from '@firebase/firestore/lite';
 
 export async function fetchLevels() {
   const data = [];
@@ -7,4 +13,9 @@ export async function fetchLevels() {
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => data.push({ ...doc.data(), id: doc.id }));
   return data;
+}
+
+export async function createDocWithRandomID(collectionName, data) {
+  const docRef = await addDoc(collection(db, collectionName), data);
+  return docRef;
 }

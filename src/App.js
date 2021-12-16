@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { fetchLevels } from './api/apiUtils';
+import { fetchLevels } from './api/firestore';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 import GlobalStyle from './GlobalStyle';
