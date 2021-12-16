@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { useUpdateEffect } from 'react-use';
 import { createTimestampInMilliseconds } from '../../api/firestore';
 import { convertMillisecondsToSeconds } from '../../helpers/math';
+import { changeUrlPath } from '../../helpers/historyAPI';
 import useMousePosition from '../../hooks/useMousePosition';
 import { Container, Image } from './styles';
 import GameTopBar from '../../components/GameTopBar';
 import DropDownMenu from '../../components/GameDropdownMenu';
-import { changeUrlPath } from '../../helpers/historyAPI';
+import ScoreModal from '../../components/ScoreModal';
 
 const Game = ({ data }) => {
   const { image } = data;
@@ -138,6 +139,7 @@ const Game = ({ data }) => {
           markCharacterAsFound={markCharacterAsFound}
         />
       )}
+      {gameOver && <ScoreModal score={score} />}
     </>
   );
 };
