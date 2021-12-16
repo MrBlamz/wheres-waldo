@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useUpdateEffect } from 'react-use';
+import { createTimestampInMilliseconds } from '../../api/firestore';
+import { convertMillisecondsToSeconds } from '../../helpers/math';
 import useMousePosition from '../../hooks/useMousePosition';
 import { Container, Image } from './styles';
 import GameTopBar from '../../components/GameTopBar';
@@ -8,6 +11,9 @@ import { changeUrlPath } from '../../helpers/historyAPI';
 const Game = ({ data }) => {
   const { image } = data;
   const { url, width, height } = image;
+  const [timer, setTimer] = useState({});
+  const [score, setScore] = useState(null);
+  const [gameOver, setGameOver] = useState(false);
   const [characters, setCharacters] = useState([...data.characters]);
   const [isDropdownMenuActive, setIsDropdownMenuActive] = useState(false);
   const [convertedImageClickCoordinates, setConvertedImageClickCoordinates] =
@@ -16,6 +22,22 @@ const Game = ({ data }) => {
       y: null,
     });
   const { x, y, mouseClickHandler } = useMousePosition();
+
+  const startTimer = () => {
+    const timestamp = createTimestampInMilliseconds();
+    setTimer({ start: timestamp, end: null });
+  };
+
+  const endTimer = () => {
+    const timestamp = createTimestampInMilliseconds();
+    setTimer((prevState) => ({
+      ...prevState,
+      end: timestamp,
+    }));
+  };
+
+  const calculateCompletionTime = (end, start) =>
+    convertMillisecondsToSeconds(end - start);
 
   const getConvertedClickCoordinates = (
     event,
@@ -74,23 +96,33 @@ const Game = ({ data }) => {
     setIsDropdownMenuActive(false);
   };
 
-  // Check if it's game over
-  useEffect(() => {
-    const isGameOver = characters.every(
-      (character) => character.found === true
-    );
-
-    // TODO - Trigger modal that asks for username to save the time in the server
-    isGameOver && console.log('GameOver');
-  }, [characters]);
-
   useEffect(() => {
     document.addEventListener('click', handleMouseClick);
+    startTimer();
 
     return () => {
       document.removeEventListener('click', handleMouseClick);
     };
-  });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Check if it's game over
+  useUpdateEffect(() => {
+    const isGameOver = characters.every(
+      (character) => character.found === true
+    );
+
+    if (isGameOver) {
+      endTimer();
+      setGameOver(true);
+    }
+  }, [characters]);
+
+  useUpdateEffect(() => {
+    const score = calculateCompletionTime(timer.end, timer.start);
+    setScore(score);
+  }, [gameOver]);
 
   return (
     <>
