@@ -1,4 +1,5 @@
 const theme = {
+  fontFamily: 'Poppins',
   primary: '#EF4444',
   secondary: '#3B82F6',
   background: '#FFFFFF',
