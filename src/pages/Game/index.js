@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useUpdateEffect } from 'react-use';
 import { createTimestampInMilliseconds } from '../../api/firestore';
 import { convertMillisecondsToSeconds } from '../../helpers/math';
-import { changeUrlPath } from '../../helpers/historyAPI';
 import useMousePosition from '../../hooks/useMousePosition';
 import { Container, Image } from './styles';
 import GameTopBar from '../../components/GameTopBar';
@@ -127,7 +126,7 @@ const Game = ({ data }) => {
 
   return (
     <>
-      <GameTopBar characters={characters} changeUrlPath={changeUrlPath} />
+      <GameTopBar characters={characters} />
       <Container>
         <Image src={url} alt='Board Picture' id='gameBoard' />
       </Container>

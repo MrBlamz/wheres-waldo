@@ -1,10 +1,11 @@
 import { useHistory } from 'react-router';
+import { changeUrlPath } from '../../helpers/historyAPI';
 import { Image, TitleContainer, RedTitle, BlueTitle } from './styles';
 import TopBar from '../TopBar';
 import Spacer from '../Spacer';
 import waldoImage from '../../assets/images/waldo.png';
 
-const MainTopBar = ({ changeUrlPath }) => {
+const MainTopBar = () => {
   const history = useHistory();
 
   return (

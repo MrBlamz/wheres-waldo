@@ -3,7 +3,6 @@ import MainTopBar from '../../components/MainTopBar';
 import LevelCard from '../../components/LevelCard';
 import LeaderBoardCard from '../../components/LeaderBoardCard';
 import Spacer from '../../components/Spacer';
-import { changeUrlPath } from '../../helpers/historyAPI';
 
 const Home = ({ data, selectLevel }) => {
   const levelCards = data.map((item) => {
@@ -14,7 +13,6 @@ const Home = ({ data, selectLevel }) => {
         image={image.url}
         level={level}
         characters={characters}
-        changeUrlPath={changeUrlPath}
         selectLevel={selectLevel}
       />
     );
@@ -22,11 +20,11 @@ const Home = ({ data, selectLevel }) => {
 
   return (
     <>
-      <MainTopBar changeUrlPath={changeUrlPath} />
+      <MainTopBar />
       <Container>
         <Grid>{levelCards}</Grid>
         <Spacer marginTop={'5vh'} />
-        <LeaderBoardCard changeUrlPath={changeUrlPath} />
+        <LeaderBoardCard />
       </Container>
     </>
   );

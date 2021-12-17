@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router';
+import { changeUrlPath } from '../../helpers/historyAPI';
 import {
   Container,
   Image,
@@ -8,13 +9,7 @@ import {
   Avatar,
 } from './styles';
 
-const LevelCard = ({
-  image,
-  level,
-  characters,
-  changeUrlPath,
-  selectLevel,
-}) => {
+const LevelCard = ({ image, level, characters, selectLevel }) => {
   const history = useHistory();
   const avatars = characters.map((character, index) => (
     <Avatar src={character.avatar} key={index} />

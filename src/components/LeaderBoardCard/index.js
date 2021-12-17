@@ -1,8 +1,9 @@
 import { useHistory } from 'react-router';
+import { changeUrlPath } from '../../helpers/historyAPI';
 import { Container, TextContainer, BlackText, RedText } from './styles';
 import Button from '../Button';
 
-const LeaderBoardCard = ({ changeUrlPath }) => {
+const LeaderBoardCard = () => {
   const history = useHistory();
 
   return (
