@@ -10,7 +10,7 @@ import DropDownMenu from '../../components/GameDropdownMenu';
 import ScoreModal from '../../components/ScoreModal';
 
 const Game = ({ data }) => {
-  const { image } = data;
+  const { image, level } = data;
   const { url, width, height } = image;
   const [timer, setTimer] = useState({});
   const [score, setScore] = useState(null);
@@ -139,7 +139,7 @@ const Game = ({ data }) => {
           markCharacterAsFound={markCharacterAsFound}
         />
       )}
-      {gameOver && <ScoreModal score={score} />}
+      {gameOver && <ScoreModal score={score} level={level} />}
     </>
   );
 };

@@ -84,3 +84,9 @@ export const ButtonContainer = styled.div`
 export const Button = styled(DefaultButton)`
   padding: 1rem;
 `;
+
+export const Error = styled.span`
+  display: block;
+  color: red;
+  margin-top: 5px;
+`;

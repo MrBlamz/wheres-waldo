@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { createDocWithRandomID } from '../../api/firestore';
 import { changeUrlPath } from '../../helpers/historyAPI';
 import Spacer from '../Spacer';
 import {
@@ -13,15 +14,38 @@ import {
   InputContainer,
   Label,
   Input,
+  Error,
   ButtonContainer,
   Button,
 } from './styles';
 
-const ScoreModal = ({ score }) => {
+const ScoreModal = ({ score, level }) => {
   const history = useHistory();
+  const [username, setUsername] = useState('');
+  const [error, setError] = useState(false);
   const { width, height } = document
     .querySelector('.App')
     .getBoundingClientRect();
+
+  const handleInputChange = (event) => {
+    setError(false);
+    setUsername(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (!username.length) {
+      setError(true);
+      return;
+    }
+
+    createDocWithRandomID('leaderboard', {
+      level,
+      username,
+      score,
+    });
+
+    changeUrlPath(history, '/leaderboard');
+  };
 
   return (
     <>
@@ -37,7 +61,14 @@ const ScoreModal = ({ score }) => {
             </Text>
             <InputContainer>
               <Label htmlFor='name-input'>Username</Label>
-              <Input type='text' name='name-input' id='name-input' />
+              <Input
+                type='text'
+                name='name-input'
+                id='name-input'
+                value={username}
+                onChange={handleInputChange}
+              />
+              {error && <Error>Your username cannot be empty!</Error>}
             </InputContainer>
           </InputWrapper>
           <ButtonContainer>
@@ -45,7 +76,9 @@ const ScoreModal = ({ score }) => {
               Cancel
             </Button>
             <Spacer margin={'0.5rem'} />
-            <Button secondary>Submit Score</Button>
+            <Button secondary onClick={handleSubmit}>
+              Submit Score
+            </Button>
           </ButtonContainer>
         </Modal>
       </Container>
