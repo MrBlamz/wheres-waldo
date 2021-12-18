@@ -9,7 +9,7 @@ import {
   Avatar,
 } from './styles';
 
-const LevelCard = ({ image, level, characters, selectLevel }) => {
+const LevelCard = ({ image, level, characters = [], selectLevel }) => {
   const history = useHistory();
   const avatars = characters.map((character, index) => (
     <Avatar src={character.avatar} key={index} />
