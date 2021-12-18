@@ -16,6 +16,13 @@ export async function fetchLevels() {
   return data;
 }
 
+export async function fetchLeaderboard() {
+  const data = [];
+  const docs = await getDocs(collection(db, 'leaderboard'));
+  docs.forEach((doc) => data.push({ ...doc.data(), id: doc.id }));
+  return data;
+}
+
 export async function createDocWithRandomID(collectionName, data) {
   const docRef = await addDoc(collection(db, collectionName), data);
   return docRef;
