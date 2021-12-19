@@ -6,6 +6,7 @@ import theme from './theme';
 import GlobalStyle from './GlobalStyle';
 import Home from './pages/Home';
 import Game from './pages/Game';
+import Leaderboard from './pages/Leaderboard';
 
 function App() {
   const [data, setData] = useState([]);
@@ -33,6 +34,13 @@ function App() {
             </Route>
             <Route exact path='/game'>
               <Game data={selectedLevelData} />
+            </Route>
+            <Route exact path='/leaderboard'>
+              <Leaderboard
+                data={data}
+                selectedLevelData={selectedLevelData}
+                selectLevel={selectLevel}
+              />
             </Route>
           </Switch>
         </Router>
