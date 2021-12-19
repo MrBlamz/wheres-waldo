@@ -5,6 +5,9 @@ export const Container = styled.div`
   border-radius: ${(props) => props.theme.borderRadius};
   overflow: hidden;
   cursor: pointer;
+  background-color: ${(props) =>
+    props.selected ? props.theme.primary : 'none'};
+  color: ${(props) => (props.selected ? '#fff' : '#000')};
 
   &:hover {
     box-shadow: 0 0 11px rgba(33, 33, 33, 0.1);
