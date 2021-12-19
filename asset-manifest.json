@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/wheres-waldo/static/js/main.ae572772.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.ae572772.chunk.js.map",
+    "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
+    "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
+    "static/js/2.9363f2dc.chunk.js": "/wheres-waldo/static/js/2.9363f2dc.chunk.js",
+    "static/js/2.9363f2dc.chunk.js.map": "/wheres-waldo/static/js/2.9363f2dc.chunk.js.map",
+    "index.html": "/wheres-waldo/index.html",
+    "static/js/2.9363f2dc.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.9363f2dc.chunk.js.LICENSE.txt",
+    "static/media/waldo.1cc63b52.png": "/wheres-waldo/static/media/waldo.1cc63b52.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6322256e.js",
+    "static/js/2.9363f2dc.chunk.js",
+    "static/js/main.ae572772.chunk.js"
+  ]
+}
