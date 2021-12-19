@@ -138,7 +138,9 @@ const Game = ({ data, selectLevel }) => {
           markCharacterAsFound={markCharacterAsFound}
         />
       )}
-      {gameOver && <ScoreModal score={score} level={level} />}
+      {gameOver && (
+        <ScoreModal score={score} level={level} selectLevel={selectLevel} />
+      )}
     </>
   );
 };

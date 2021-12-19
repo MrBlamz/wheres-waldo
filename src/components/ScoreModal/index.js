@@ -19,7 +19,7 @@ import {
   Button,
 } from './styles';
 
-const ScoreModal = ({ score, level }) => {
+const ScoreModal = ({ score, level, selectLevel }) => {
   const history = useHistory();
   const [username, setUsername] = useState('');
   const [error, setError] = useState(false);
@@ -72,7 +72,13 @@ const ScoreModal = ({ score, level }) => {
             </InputContainer>
           </InputWrapper>
           <ButtonContainer>
-            <Button primary onClick={() => changeUrlPath(history, '/')}>
+            <Button
+              primary
+              onClick={() => {
+                selectLevel(1);
+                changeUrlPath(history, '/');
+              }}
+            >
               Cancel
             </Button>
             <Spacer margin={'0.5rem'} />
