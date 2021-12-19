@@ -5,8 +5,9 @@ import MainTopBar from '../../components/MainTopBar';
 import LevelCard from '../../components/LevelCard';
 import LeaderBoardCard from '../../components/LeaderBoardCard';
 import Spacer from '../../components/Spacer';
+import Loader from '../../components/Loader';
 
-const Home = ({ data, selectLevel }) => {
+const Home = ({ data, selectLevel, isLoading }) => {
   const history = useHistory();
 
   const handleLevelCardClick = (level) => {
@@ -31,7 +32,7 @@ const Home = ({ data, selectLevel }) => {
     <>
       <MainTopBar selectLevel={selectLevel} />
       <Container>
-        <Grid>{levelCards}</Grid>
+        {isLoading ? <Loader /> : <Grid>{levelCards}</Grid>}
         <Spacer marginTop={'5vh'} />
         <LeaderBoardCard />
       </Container>

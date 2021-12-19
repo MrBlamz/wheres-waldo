@@ -14,9 +14,11 @@ import {
   Button,
   LevelCardsContainer,
 } from './styles';
+import Loader from '../../components/Loader';
 
 const Leaderboard = ({ data, selectedLevelData, selectLevel }) => {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [selectedLevel, setSelectedLevel] = useState(
     selectedLevelData ? selectedLevelData.level : 1
@@ -43,8 +45,12 @@ const Leaderboard = ({ data, selectedLevelData, selectLevel }) => {
   });
 
   useEffect(() => {
+    setIsLoading(true);
     fetchLeaderboard()
-      .then((data) => setLeaderboardData(data))
+      .then((data) => {
+        setLeaderboardData(data);
+        setIsLoading(false);
+      })
       .catch((error) => console.log(error.message));
   }, []);
 
@@ -80,10 +86,14 @@ const Leaderboard = ({ data, selectedLevelData, selectLevel }) => {
           <LevelCardsContainer>{levelCards}</LevelCardsContainer>
         </Header>
         <Spacer margin={'2rem'} />
-        <Board
-          headerData={['Name', 'Time (Seconds)']}
-          data={selectedLevelLeaderboardData}
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Board
+            headerData={['Name', 'Time (Seconds)']}
+            data={selectedLevelLeaderboardData}
+          />
+        )}
       </Container>
     </>
   );

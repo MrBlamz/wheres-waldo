@@ -9,6 +9,7 @@ import Game from './pages/Game';
 import Leaderboard from './pages/Leaderboard';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [selectedLevelData, setSelectedLevelData] = useState(null);
 
@@ -18,8 +19,12 @@ function App() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchLevels()
-      .then((data) => setData(data))
+      .then((data) => {
+        setData(data);
+        setIsLoading(false);
+      })
       .catch((error) => console.log(error.message));
   }, []);
 
@@ -30,7 +35,11 @@ function App() {
         <Router>
           <Switch>
             <Route exact path='/'>
-              <Home data={data} selectLevel={selectLevel} />
+              <Home
+                data={data}
+                selectLevel={selectLevel}
+                isLoading={isLoading}
+              />
             </Route>
             <Route exact path='/game'>
               <Game data={selectedLevelData} selectLevel={selectLevel} />
