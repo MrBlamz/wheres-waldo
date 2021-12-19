@@ -6,8 +6,9 @@ import { CharactersContainer, Container, HomeButton } from './styles';
 import CharacterItem from './CharacterItem';
 import Spacer from '../Spacer';
 
-const GameTopBar = ({ characters }) => {
+const GameTopBar = ({ characters, selectLevel }) => {
   const history = useHistory();
+
   const characterItems = characters.map((character, index) => (
     <Fragment key={index}>
       <CharacterItem
@@ -23,7 +24,13 @@ const GameTopBar = ({ characters }) => {
     <TopBar>
       <Container>
         <CharactersContainer>{characterItems}</CharactersContainer>
-        <HomeButton primary onClick={() => changeUrlPath(history, '/')}>
+        <HomeButton
+          primary
+          onClick={() => {
+            selectLevel(1);
+            changeUrlPath(history, '/');
+          }}
+        >
           Return Home
         </HomeButton>
       </Container>

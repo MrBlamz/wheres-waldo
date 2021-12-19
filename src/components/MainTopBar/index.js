@@ -5,14 +5,19 @@ import TopBar from '../TopBar';
 import Spacer from '../Spacer';
 import waldoImage from '../../assets/images/waldo.png';
 
-const MainTopBar = () => {
+const MainTopBar = ({ selectLevel }) => {
   const history = useHistory();
 
   return (
     <TopBar>
       <Image src={waldoImage} alt={`Waldo's Face`} />
       <Spacer margin={'5px'} />
-      <TitleContainer onClick={() => changeUrlPath(history, '/')}>
+      <TitleContainer
+        onClick={() => {
+          selectLevel(1);
+          changeUrlPath(history, '/');
+        }}
+      >
         <BlueTitle>Where's</BlueTitle>
         <Spacer margin={'3px'} />
         <RedTitle>Waldo?</RedTitle>

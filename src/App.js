@@ -33,7 +33,7 @@ function App() {
               <Home data={data} selectLevel={selectLevel} />
             </Route>
             <Route exact path='/game'>
-              <Game data={selectedLevelData} />
+              <Game data={selectedLevelData} selectLevel={selectLevel} />
             </Route>
             <Route exact path='/leaderboard'>
               <Leaderboard

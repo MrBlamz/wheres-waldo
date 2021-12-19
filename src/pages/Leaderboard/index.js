@@ -58,7 +58,7 @@ const Leaderboard = ({ data, selectedLevelData, selectLevel }) => {
 
   return (
     <>
-      <MainTopBar />
+      <MainTopBar selectLevel={selectLevel} />
       <Container>
         <Header>
           <Title>Leaderboard</Title>
@@ -67,7 +67,13 @@ const Leaderboard = ({ data, selectedLevelData, selectLevel }) => {
               Play This Level
             </Button>
             <Spacer margin={'0.5rem'} />
-            <Button secondary onClick={() => changeUrlPath(history, '/')}>
+            <Button
+              secondary
+              onClick={() => {
+                selectLevel(1);
+                changeUrlPath(history, '/');
+              }}
+            >
               Back To Home
             </Button>
           </ButtonsContainer>

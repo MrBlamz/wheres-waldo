@@ -8,7 +8,7 @@ import GameTopBar from '../../components/GameTopBar';
 import DropDownMenu from '../../components/GameDropdownMenu';
 import ScoreModal from '../../components/ScoreModal';
 
-const Game = ({ data }) => {
+const Game = ({ data, selectLevel }) => {
   const { image, level } = data;
   const { url, width, height } = image;
   const [timer, setTimer] = useState({});
@@ -126,7 +126,7 @@ const Game = ({ data }) => {
 
   return (
     <>
-      <GameTopBar characters={characters} />
+      <GameTopBar characters={characters} selectLevel={selectLevel} />
       <Container>
         <Image src={url} alt='Board Picture' id='gameBoard' />
       </Container>

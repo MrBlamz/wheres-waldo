@@ -29,7 +29,7 @@ const Home = ({ data, selectLevel }) => {
 
   return (
     <>
-      <MainTopBar />
+      <MainTopBar selectLevel={selectLevel} />
       <Container>
         <Grid>{levelCards}</Grid>
         <Spacer marginTop={'5vh'} />
