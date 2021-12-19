@@ -32,13 +32,13 @@ const ScoreModal = ({ score, level }) => {
     setUsername(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!username.length) {
       setError(true);
       return;
     }
 
-    createDocWithRandomID('leaderboard', {
+    await createDocWithRandomID('leaderboard', {
       level,
       username,
       score,
