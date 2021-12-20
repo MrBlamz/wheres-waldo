@@ -3,10 +3,12 @@ import { useUpdateEffect } from 'react-use';
 import { createTimestampInMilliseconds } from '../../api/firestore';
 import { convertMillisecondsToSeconds } from '../../helpers/math';
 import useMousePosition from '../../hooks/useMousePosition';
+import useWindowOrientation from 'use-window-orientation';
 import { Container, Image } from './styles';
 import GameTopBar from '../../components/GameTopBar';
 import DropDownMenu from '../../components/GameDropdownMenu';
 import ScoreModal from '../../components/ScoreModal';
+import RotateDeviceWarning from '../../components/RotateDeviceWarning';
 
 const Game = ({ data, selectLevel }) => {
   const { image, level } = data;
@@ -22,6 +24,7 @@ const Game = ({ data, selectLevel }) => {
       y: null,
     });
   const { x, y, mouseClickHandler } = useMousePosition();
+  const { portrait } = useWindowOrientation();
 
   const startTimer = () => {
     const timestamp = createTimestampInMilliseconds();
@@ -124,22 +127,33 @@ const Game = ({ data, selectLevel }) => {
     setScore(score);
   }, [gameOver]);
 
+  // Restart timer when device changes orientation
+  useUpdateEffect(() => {
+    startTimer();
+  }, [portrait]);
+
   return (
     <>
-      <GameTopBar characters={characters} selectLevel={selectLevel} />
-      <Container>
-        <Image src={url} alt='Board Picture' id='gameBoard' />
-      </Container>
-      {isDropdownMenuActive && (
-        <DropDownMenu
-          characters={characters}
-          coordinates={{ x, y }}
-          imageClickCoordinates={convertedImageClickCoordinates}
-          markCharacterAsFound={markCharacterAsFound}
-        />
-      )}
-      {gameOver && (
-        <ScoreModal score={score} level={level} selectLevel={selectLevel} />
+      {portrait ? (
+        <RotateDeviceWarning />
+      ) : (
+        <>
+          <GameTopBar characters={characters} selectLevel={selectLevel} />
+          <Container>
+            <Image src={url} alt='Board Picture' id='gameBoard' />
+          </Container>
+          {isDropdownMenuActive && (
+            <DropDownMenu
+              characters={characters}
+              coordinates={{ x, y }}
+              imageClickCoordinates={convertedImageClickCoordinates}
+              markCharacterAsFound={markCharacterAsFound}
+            />
+          )}
+          {gameOver && (
+            <ScoreModal score={score} level={level} selectLevel={selectLevel} />
+          )}
+        </>
       )}
     </>
   );
