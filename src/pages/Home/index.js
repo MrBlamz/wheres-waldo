@@ -1,10 +1,9 @@
 import { useHistory } from 'react-router-dom';
 import { changeUrlPath } from '../../helpers/historyAPI';
-import { Container, Grid } from './styles';
+import { Container, Grid, Spacer } from './styles';
 import MainTopBar from '../../components/MainTopBar';
 import LevelCard from '../../components/LevelCard';
 import LeaderBoardCard from '../../components/LeaderBoardCard';
-import Spacer from '../../components/Spacer';
 import Loader from '../../components/Loader';
 
 const Home = ({ data, selectLevel, isLoading }) => {
@@ -33,7 +32,7 @@ const Home = ({ data, selectLevel, isLoading }) => {
       <MainTopBar selectLevel={selectLevel} />
       <Container>
         {isLoading ? <Loader /> : <Grid>{levelCards}</Grid>}
-        <Spacer marginTop={'5vh'} />
+        <Spacer />
         <LeaderBoardCard />
       </Container>
     </>
