@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { media } from '../../theme';
 import DefaultButton from '../Button';
+
+const padding = css`
+  padding: 1rem;
+
+  ${media.greaterThan('md')`
+    padding: 1.5rem;
+  `}
+`;
 
 export const Background = styled.div`
   position: absolute;
@@ -9,7 +18,7 @@ export const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   overflow: hidden;
 `;
 
@@ -30,22 +39,30 @@ export const Modal = styled.div`
 `;
 
 export const Header = styled.div`
-  padding: 1.5rem;
+  ${padding};
   border-bottom: 1px solid #dddddd;
 `;
 
 export const HeaderText = styled.h2`
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
+
+  ${media.greaterThan('lg')`
+    font-size: 2rem;
+  `}
 `;
 
 export const InputWrapper = styled.div`
-  padding: 1.5rem;
+  ${padding};
   border-bottom: 1px solid #dddddd;
 `;
 
 export const Text = styled.p`
   font-size: 1.1rem;
+
+  ${media.greaterThan('lg')`
+    font-size: 1.25rem;
+  `}
 `;
 
 export const InputContainer = styled.div`
@@ -58,6 +75,10 @@ export const Label = styled.label`
   font-size: 0.8rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+
+  ${media.greaterThan('lg')`
+    font-size: 1rem;
+  `}
 `;
 
 export const Input = styled.input`
@@ -72,10 +93,14 @@ export const Input = styled.input`
   &:focus {
     border: 1px solid ${(props) => props.theme.secondary};
   }
+
+  ${media.greaterThan('lg')`
+    font-size: 1.5rem;
+  `}
 `;
 
 export const ButtonContainer = styled.div`
-  padding: 1.5rem;
+  ${padding};
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -83,10 +108,18 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled(DefaultButton)`
   padding: 1rem;
+
+  ${media.greaterThan('lg')`
+    font-size: 1.05rem;
+  `}
 `;
 
 export const Error = styled.span`
   display: block;
   color: red;
   margin-top: 5px;
+
+  ${media.greaterThan('lg')`
+    font-size: 1.1rem;
+  `}
 `;

@@ -9,7 +9,9 @@ const GlobalStyle = createGlobalStyle`
 
 html, body {
     font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
+
 `;
 
 export default GlobalStyle;

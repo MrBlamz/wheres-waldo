@@ -2,9 +2,8 @@ import { Fragment } from 'react';
 import { useHistory } from 'react-router';
 import TopBar from '../TopBar';
 import { changeUrlPath } from '../../helpers/historyAPI';
-import { CharactersContainer, Container, HomeButton } from './styles';
+import { CharactersContainer, Container, HomeButton, Spacer } from './styles';
 import CharacterItem from './CharacterItem';
-import Spacer from '../Spacer';
 
 const GameTopBar = ({ characters, selectLevel }) => {
   const history = useHistory();
@@ -16,7 +15,7 @@ const GameTopBar = ({ characters, selectLevel }) => {
         name={character.name}
         disabled={character.found}
       />
-      <Spacer margin='10px' />
+      <Spacer />
     </Fragment>
   ));
 

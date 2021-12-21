@@ -1,5 +1,4 @@
-import { Container, Avatar, Name } from './styles';
-import Spacer from '../../Spacer';
+import { Container, Avatar, Name, Spacer } from './styles';
 
 const MenuItem = ({
   avatar,
@@ -25,16 +24,13 @@ const MenuItem = ({
 
     if (isCharacter) {
       markCharacterAsFound(name);
-      // Check if it's game over
-      // YES ? STOP TIMER AND ASK FOR NAME
-      // NO ? DO NOTHING
     }
   };
 
   return (
     <Container onClick={handleMouseClick}>
       <Avatar src={avatar} alt='Character Avatar' />
-      <Spacer margin='5px' />
+      <Spacer />
       <Name>{name}</Name>
     </Container>
   );
