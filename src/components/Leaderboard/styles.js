@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../theme';
 
 export const Table = styled.table`
   width: 100%;
@@ -18,6 +19,10 @@ export const TableHeader = styled.thead`
     padding: 0.8rem 0;
     text-transform: uppercase;
     font-weight: 600;
+
+    ${media.greaterThan('md')`
+    padding: 1rem 1.5rem;
+  `}
   }
 `;
 
@@ -26,6 +31,13 @@ export const TableRow = styled.tr``;
 export const TableBody = styled.tbody``;
 
 export const TableData = styled.td`
-  padding: 0.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0.8rem 1.25rem;
   border-top: 1px solid #ddd;
+
+  ${media.greaterThan('md')`
+    padding: 1rem 1.5rem;
+  `}
 `;

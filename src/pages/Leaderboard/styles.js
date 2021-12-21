@@ -1,8 +1,25 @@
 import styled from 'styled-components';
+import { media } from '../../theme';
 import DefaultButton from '../../components/Button';
 
 export const Container = styled.div`
-  padding: 3rem 8rem;
+  padding: 1rem;
+
+  ${media.greaterThan('sm')`
+  padding: 2rem;
+  `};
+
+  ${media.greaterThan('md')`
+  padding: 2rem 3rem;
+  `}
+
+  ${media.greaterThan('lg')`
+  padding: 3rem 5rem;
+  `}
+
+  ${media.greaterThan('xl')`
+  padding: 3rem 10rem;
+  `}
 `;
 
 export const Header = styled.header`
@@ -24,7 +41,35 @@ export const Button = styled(DefaultButton)`
 `;
 
 export const LevelCardsContainer = styled.div`
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.2rem 0;
+  white-space: nowrap;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  ${media.greaterThan('md')`
+    gap: 1rem;
+    padding: 0.35rem 0;
+  `}
+
+  div {
+    min-width: 100%;
+    float: none;
+
+    ${media.greaterThan('md')`
+      min-width: calc(50% - 0.5rem );
+    `}
+
+    ${media.greaterThan('lg')`
+      min-width: calc(33.3% - 0.65rem );
+    `}
+
+    ${media.greaterThan('xl')`
+      min-width: calc(25% - 0.75rem );
+    `}
+  }
 `;

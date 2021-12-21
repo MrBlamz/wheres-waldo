@@ -1,5 +1,6 @@
 import {
   Container,
+  ImageContainer,
   Image,
   InfoContainer,
   Level,
@@ -14,7 +15,9 @@ const LevelCard = ({ image, level, characters = [], onClick, selected }) => {
 
   return (
     <Container selected={selected} onClick={onClick}>
-      <Image src={image} />
+      <ImageContainer>
+        <Image src={image} />
+      </ImageContainer>
       <InfoContainer>
         <Level>{`Level ${level}`}</Level>
         <AvatarsContainer>{avatars}</AvatarsContainer>

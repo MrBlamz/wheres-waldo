@@ -15,13 +15,17 @@ export const Container = styled.div`
   }
 `;
 
-export const Image = styled.img`
-  width: 100%;
+export const ImageContainer = styled.div`
   height: 10.938rem;
 
   ${media.greaterThan('sm')`
-    height: 15.5rem;
-  `};
+  height: 15.5rem;
+`};
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const InfoContainer = styled.div`
