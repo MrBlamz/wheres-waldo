@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../theme';
 
 export const Container = styled.div`
   position: absolute;
@@ -19,6 +20,16 @@ export const Device = styled.div`
   border-radius: 10px;
   animation: rotate 1.5s ease-in-out infinite alternate;
 
+  ${media.greaterThan('md')`
+    height: 150px;
+    width: 200px;
+  `}
+
+  ${media.greaterThan('lg')`
+    height: 200px;
+    width: 250px;
+  `}
+
   @keyframes rotate {
     0% {
       transform: rotate(0deg);
@@ -34,8 +45,17 @@ export const Device = styled.div`
 
 export const Message = styled.div`
   color: white;
-  font-size: 1em;
-  margin-top: 40px;
+  font-size: 1rem;
+  margin-top: 50px;
+
+  ${media.greaterThan('md')`
+    font-size: 1.2rem;
+  `}
+
+  ${media.greaterThan('lg')`
+    font-size: 1.3rem;
+    margin-top: 60px;
+  `}
 `;
 
 // Original code from https://codepen.io/fabiowallner/pen/YOyJbJ
