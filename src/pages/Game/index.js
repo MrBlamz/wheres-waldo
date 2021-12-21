@@ -118,6 +118,7 @@ const Game = ({ data, selectLevel }) => {
 
     if (isGameOver) {
       endTimer();
+      setIsDropdownMenuActive(false);
       setGameOver(true);
     }
   }, [characters]);
