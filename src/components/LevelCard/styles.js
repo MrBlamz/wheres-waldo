@@ -33,7 +33,6 @@ export const InfoContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  margin-top: -0.3rem;
 
   ${media.greaterThan('sm')`
     padding: 0.8rem 1rem;
