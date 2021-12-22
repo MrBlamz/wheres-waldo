@@ -116,9 +116,10 @@ const Game = ({ data, selectLevel }) => {
       (character) => character.found === true
     );
 
+    setIsDropdownMenuActive(false);
+
     if (isGameOver) {
       endTimer();
-      setIsDropdownMenuActive(false);
       setGameOver(true);
     }
   }, [characters]);
